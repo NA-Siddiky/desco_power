@@ -1,9 +1,11 @@
 import React from 'react'
 
-export default function Editor() {
+const Editor = () => {
     return (
         <div>
 
         </div>
     )
 }
+
+export default Editor
