@@ -7,16 +7,16 @@ const BillForm = () => {
     return (
         <div>
             <Button onClick={() => setIsOpen(true)}>
-                Add Blog
+                Add New Bill
             </Button>
             <Table striped bordered hover variant="dark">
                 <thead>
                     <tr>
-                        <th>Title</th>
-                        <th>Author Name</th>
-                        <th>Phone</th>
+                        <th>Billing ID</th>
+                        <th>Full Name</th>
                         <th>Email</th>
-                        <th>Description</th>
+                        <th>Phone</th>
+                        <th>Paid Amount</th>
                         <th>Action</th>
                     </tr>
                 </thead>
