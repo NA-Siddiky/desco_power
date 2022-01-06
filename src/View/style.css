@@ -1,0 +1,21 @@
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.table td,
+.table th {
+  text-align: center;
+  font-size: 16px;
+  vertical-align: middle !important;
+}
+
+.table th {
+  background-color: #0069d9;
+  color: #ffffff;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #f5f5f5;
+}
