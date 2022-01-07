@@ -5,7 +5,7 @@ const Item = ({ item, editEnable }) => {
     return (
         <tr>
             <td data-label='Title'>{Title}</td>
-            <td data-label='Author Name'>{Author_Name}</td>
+            <td data-label='Billing Name'>{Author_Name}</td>
             <td data-label='Phone'>{Phone}</td>
             <td data-label='Email'>{Email}</td>
             <td data-label='Description'>{Description}</td>
