@@ -89,7 +89,12 @@ function View() {
                     style={{ height: "50px", width: "50px" }}
                     src="https://thumbs.dreamstime.com/b/demo-icon-189245721.jpg"
                 />
-                <h6>Paid Total {BillInfo.length}</h6>
+                <div className="d-flex">
+                    <h6 className="m-1">Paid Total {BillInfo.length}</h6>
+                    <Button onClick={() => localStorage.removeItem("user")}>
+                        Logout
+                    </Button>
+                </div>
             </div>
             <div className="m-3 rounded shadow">
                 <div
