@@ -38,39 +38,26 @@ function View() {
     const saveAuthor = async (e) => {
         e.preventDefault();
         try {
-            // converting to form data
-            const form = new FormData();
-            const a = Object.entries(addBillInfo);
-            a.map((b) => form.append(b[0], b[1]));
-
             //if make edit request, it will be true and call edit option
             if (!isEdit) {
                 axios
-                    .post(`https://infinite-reef-09004.herokuapp.com/get-bill/20`, form, {
-                        headers: {
-                            "Custom-User-Agent": "gsdf#g3243F466$",
-                        },
-                    })
+                    .post(`https://infinite-reef-09004.herokuapp.com/add-billing`, addBillInfo)
                     .then((res) => {
                         console.log(res);
-                        toast.success(res.data.message);
+                        toast.success("Add SuccessFully");
                         setEdit(false);
                         setIsOpen(false);
                     });
             } else {
+                console.log(addBillInfo)
                 axios
-                    .put(
-                        `https://care-box-backend.herokuapp.com/api/v1/applicant_test/update_blog/${addBillInfo.id}/`,
-                        form,
-                        {
-                            headers: {
-                                "Custom-User-Agent": "gsdf#g3243F466$",
-                            },
-                        }
+                    .post(
+                        `https://infinite-reef-09004.herokuapp.com/update-bill/${addBillInfo._id}/`,
+                        addBillInfo
                     )
                     .then((res) => {
                         console.log(res);
-                        toast.success(res.data.message);
+                        toast.success("Update SuccessFully");
                         setEdit(false);
                         setIsOpen(false);
                     });

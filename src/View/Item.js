@@ -6,10 +6,12 @@ import { toast } from "react-toastify";
 const Item = ({ item, editEnable }) => {
     const { FullName, Email, Phone } = item;
 
-    // here just add delete api url 
+    // here just add delete api url
     const deleteBill = async (id) => {
         try {
-            await axios.delete(`url/${id}`);
+            await axios.get(
+                `https://infinite-reef-09004.herokuapp.com/delete-billing/${id}`
+            );
             toast.success("Delete SuccessFully");
         } catch (err) {
             console.log(err);
