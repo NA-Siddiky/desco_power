@@ -4,7 +4,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 
 const Item = ({ item, editEnable }) => {
-    const { FullName, Email, Phone } = item;
+    const { FullName, Email, Phone, paidAmount, _id } = item;
 
     // here just add delete api url
     const deleteBill = async (id) => {
@@ -19,9 +19,11 @@ const Item = ({ item, editEnable }) => {
     };
     return (
         <tr>
+            <td data-label="Billing Name">{_id.slice(0, 8)}</td>
             <td data-label="Billing Name">{FullName}</td>
             <td data-label="Phone">{Phone}</td>
             <td data-label="Email">{Email}</td>
+            <td data-label="Email">{paidAmount}</td>
 
             <td>
                 <Button onClick={() => editEnable(item)}>Edit</Button>

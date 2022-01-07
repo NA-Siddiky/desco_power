@@ -41,7 +41,10 @@ function View() {
             //if make edit request, it will be true and call edit option
             if (!isEdit) {
                 axios
-                    .post(`https://infinite-reef-09004.herokuapp.com/add-billing`, addBillInfo)
+                    .post(
+                        `https://infinite-reef-09004.herokuapp.com/add-billing`,
+                        addBillInfo
+                    )
                     .then((res) => {
                         console.log(res);
                         toast.success("Add SuccessFully");
@@ -49,7 +52,7 @@ function View() {
                         setIsOpen(false);
                     });
             } else {
-                console.log(addBillInfo)
+                console.log(addBillInfo);
                 axios
                     .post(
                         `https://infinite-reef-09004.herokuapp.com/update-bill/${addBillInfo._id}/`,
@@ -107,10 +110,12 @@ function View() {
                 <Table striped bordered hover variant="dark">
                     <thead>
                         <tr>
+                            <th>Id</th>
                             <th>Full Name</th>
 
                             <th>Phone</th>
                             <th>Email</th>
+                            <th>paid Amount</th>
 
                             <th>Action</th>
                         </tr>
@@ -128,7 +133,7 @@ function View() {
                                             filterText.toLowerCase()
                                         ))
                             ).map((bill) => (
-                                <Item key={bill.id} item={bill} editEnable={editEnable} />
+                                <Item key={bill._id} item={bill} editEnable={editEnable} />
                             ))}
                     </tbody>
                 </Table>

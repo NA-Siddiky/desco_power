@@ -39,6 +39,17 @@ function AuthorEditor({ action, info, setInfo }) {
                     placeholder="Phone"
                 />
             </Form.Group>
+            <Form.Group className="mb-3" controlId="formBasicPassword">
+                <Form.Label>paid Amount</Form.Label>
+                <Form.Control
+                    value={info.paidAmount || ""}
+                    onChange={(value) =>
+                        setInfo((prev) => ({ ...prev, paidAmount: value.target.value }))
+                    }
+                    type="text"
+                    placeholder="paid Amount"
+                />
+            </Form.Group>
 
             <Button variant="primary" type="submit">
                 Submit
