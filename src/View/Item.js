@@ -1,10 +1,20 @@
 import React from 'react'
-
-const Item = () => {
+import { Button } from 'react-bootstrap';
+const Item = ({ item, editEnable }) => {
+    const { Author_Name, Description, Email, Phone, Title } = item;
     return (
-        <div>
-
-        </div>
+        <tr>
+            <td data-label='Title'>{Title}</td>
+            <td data-label='Author Name'>{Author_Name}</td>
+            <td data-label='Phone'>{Phone}</td>
+            <td data-label='Email'>{Email}</td>
+            <td data-label='Description'>{Description}</td>
+            <td>
+                <Button onClick={() => editEnable(item)}>
+                    Edit
+                </Button>
+            </td>
+        </tr>
     )
 }
 
