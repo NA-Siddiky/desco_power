@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Table, Button } from "react-bootstrap";
 import Item from "./Item";
-import './style.css'
+import "./style.css";
 import Modal from "react-modal";
 import AuthorEditor from "./BillEditor";
 import { toast } from "react-toastify";
@@ -28,8 +28,11 @@ function View() {
     // fetching all Data from server
     useEffect(() => {
         axios
-            .get(`https://care-box-backend.herokuapp.com/api/v1/applicant_test/`)
-            .then((res) => setBillInfo(res.data));
+            .get(`https://infinite-reef-09004.herokuapp.com/get-bill/20`)
+            .then((res) => {
+                console.log(res);
+                setBillInfo(res.data);
+            });
     }, []);
 
     const saveAuthor = async (e) => {
@@ -43,15 +46,11 @@ function View() {
             //if make edit request, it will be true and call edit option
             if (!isEdit) {
                 axios
-                    .post(
-                        `https://care-box-backend.herokuapp.com/api/v1/applicant_test/`,
-                        form,
-                        {
-                            headers: {
-                                "Custom-User-Agent": "gsdf#g3243F466$",
-                            },
-                        }
-                    )
+                    .post(`https://infinite-reef-09004.herokuapp.com/get-bill/20`, form, {
+                        headers: {
+                            "Custom-User-Agent": "gsdf#g3243F466$",
+                        },
+                    })
                     .then((res) => {
                         console.log(res);
                         toast.success(res.data.message);
@@ -133,20 +132,16 @@ function View() {
                         {BillInfo &&
                             BillInfo.filter(
                                 (item) =>
-                                    (item.Phone &&
-                                        item.Phone.toLowerCase().includes(
-                                            filterText.toLowerCase()
-                                        )) ||
                                     (item.Email &&
                                         item.Email.toLowerCase().includes(
                                             filterText.toLowerCase()
                                         )) ||
-                                    (item.Author_Name &&
-                                        item.Author_Name.toLowerCase().includes(
+                                    (item.FullName &&
+                                        item.FullName.toLowerCase().includes(
                                             filterText.toLowerCase()
                                         ))
-                            ).map((author) => (
-                                <Item key={author.id} item={author} editEnable={editEnable} />
+                            ).map((bill) => (
+                                <Item key={bill.id} item={bill} editEnable={editEnable} />
                             ))}
                     </tbody>
                 </Table>
