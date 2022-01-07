@@ -1,70 +1,33 @@
-# Getting Started with Create React App
+Desco is a power distribution company. They want you to build some features. Read the requirements carefully before doing the task.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+1. Make a layout component, keep a header and a body. You have to reuse this layout component in every page .
 
-## Available Scripts
+2. Make a billing page.
 
-In the project directory, you can run:
+3. Keep a button which will open a modal. The modal will contain a submission form. The form will have some inputs such as ‘Full Name’ , ‘Email’, ’Phone ’ ,‘Paid Amount’
 
-### `npm start`
+4. Make a table which will have backend pagination with 10 data per page.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+5. When the user will submit the data, the table have to be updated, Before the API gives a success response.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+6. If the API is pending show “Generating Id” text in billing Id column only. If the API gives a success response you will have to set the generated billing Id. If the API fails with an error you need to roll back the data(remove) and show alert with a proper backend error message.
 
-### `npm test`
+7 .In the pagination you need to maintain the pagination page number in the right way, don't call API to load the table data for this kind of submit. Suppose there are 10 items in total and you have only one page in total when you submit new data before API response it will have a new page for displaying all 11 items. Remember per page should have only 10 items. Items will be in Descending order.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+8. Show total ‘Paid Amount’ in the header, While submitting the form, add data to redux and increase the value. If the API fails then decrement the amount.
 
-### `npm run build`
+9. You have to update and delete data, For update data reuse the same submission form component.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+10. For backend create these APIs -
+    api/registration
+    api/login
+    api/billing-list
+    api/add-billing
+    api/update-billing/:id
+    api/delete-billing/:id
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+11. Make backend form validation, such as email format, phone number should be 11 digit, Not allow blank value, Give proper error message
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+12. You need to use JWT for authentication and authorization.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+13. Search fullName, email, phone number
