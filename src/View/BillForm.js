@@ -3,7 +3,7 @@ import { Table, Button } from 'react-bootstrap';
 import Modal from 'react-modal/lib/components/Modal';
 import Editor from './Editor';
 
-const BillForm = () => {
+function BillForm() {
     return (
         <div>
             <Button onClick={() => setIsOpen(true)}>
@@ -44,3 +44,9 @@ const BillForm = () => {
 }
 
 export default BillForm
+
+
+
+
+
+
